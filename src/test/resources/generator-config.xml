@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE generatorConfiguration  
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"  
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<classPathEntry  
+        location="E:\CarSo\MyRepo\mysql\mysql-connector-java\5.1.21\mysql-connector-java-5.1.21.jar" />
+
+	<context id="MyBatis3" targetRuntime="MyBatis3">
+		<commentGenerator type="com.springboot.component.MyCommentGenerator">
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		<!--mysql数据库连接的信息：驱动类、连接地址、用户名、密码 -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://192.168.1.13:3306/silverbox_waimai" userId="root" password="root">
+		</jdbcConnection>
+
+		<!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer， 为 true时把JDBC DECIMAL和NUMERIC类型解析为java.math.BigDecimal -->
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!-- targetProject:生成model类的位置，重要！！ -->
+		<javaModelGenerator targetPackage="com.springboot.entity.waimai" targetProject="src/main/java">
+			<!-- enableSubPackages:是否让schema作为包的后缀 -->
+			<property name="enableSubPackages" value="false" />
+			<!-- 从数据库返回的值被清理前后的空格 -->
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<!-- targetProject:mapper映射xml文件生成的位置，重要！！ -->
+		<sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
+			<property name="enableSubPackages" value="false" />
+		</sqlMapGenerator>
+
+		<!-- targetPackage：mapper接口生成的位置，重要！！ -->
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.springboot.dao.waimai" targetProject="src/main/java">
+			<property name="enableSubPackages" value="false" />
+		</javaClientGenerator>
+
+		<!-- 指定数据库表，要生成哪些表，就写哪些表，要和数据库中对应，不能写错！ -->
+		<!-- 订单表-->
+		<table tableName="box_waimai" domainObjectName="Waimai"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<!-- 订单扩展表 -->
+<!-- 		<table tableName="box_order_extend" domainObjectName="OrderExtend" -->
+<!-- 			enableCountByExample="false" enableUpdateByExample="false" -->
+<!-- 			enableDeleteByExample="false" enableSelectByExample="false" -->
+<!-- 			selectByExampleQueryId="false"></table> -->
+		<!-- 订单明细表 -->
+<!-- 		<table tableName="box_item" domainObjectName="Item" -->
+<!-- 			enableCountByExample="false" enableUpdateByExample="false" -->
+<!-- 			enableDeleteByExample="false" enableSelectByExample="false" -->
+<!-- 			selectByExampleQueryId="false"></table> -->
+		<!-- 商家留言簿表 -->
+<!-- 		<table tableName="box_board" domainObjectName="Board" -->
+<!-- 			enableCountByExample="false" enableUpdateByExample="false" -->
+<!-- 			enableDeleteByExample="false" enableSelectByExample="false" -->
+<!-- 			selectByExampleQueryId="false"></table> -->
+		<!-- 商家留言簿明细表 -->
+<!-- 		<table tableName="box_board_item" domainObjectName="BoardItem" -->
+<!-- 			enableCountByExample="false" enableUpdateByExample="false" -->
+<!-- 			enableDeleteByExample="false" enableSelectByExample="false" -->
+<!-- 			selectByExampleQueryId="false"></table> -->
+		<!-- 菜品分类表 -->
+<!-- 		<table tableName="box_category" domainObjectName="Category" -->
+<!-- 			enableCountByExample="false" enableUpdateByExample="false" -->
+<!-- 			enableDeleteByExample="false" enableSelectByExample="false" -->
+<!-- 			selectByExampleQueryId="false"></table> -->
+		<!-- 桌台表 -->
+<!-- 		<table tableName="box_dining_area" domainObjectName="DiningArea" -->
+<!-- 			enableCountByExample="false" enableUpdateByExample="false" -->
+<!-- 			enableDeleteByExample="false" enableSelectByExample="false" -->
+<!-- 			selectByExampleQueryId="false"></table> -->
+		<!-- 员工信息表 -->
+<!-- 		<table tableName="box_shopper_employee" domainObjectName="Employee" -->
+<!-- 			enableCountByExample="false" enableUpdateByExample="false" -->
+<!-- 			enableDeleteByExample="false" enableSelectByExample="false" -->
+<!-- 			selectByExampleQueryId="false"></table> -->
+		<!-- 员工信息配置表 -->
+<!-- 		<table tableName="box_shopper_employee_config" domainObjectName="EmployeeConfig" -->
+<!-- 			enableCountByExample="false" enableUpdateByExample="false" -->
+<!-- 			enableDeleteByExample="false" enableSelectByExample="false" -->
+<!-- 			selectByExampleQueryId="false"></table> -->
+		<!-- 菜品信息表 -->
+<!-- 		<table tableName="box_goods" domainObjectName="Goods" -->
+<!-- 			enableCountByExample="false" enableUpdateByExample="false" -->
+<!-- 			enableDeleteByExample="false" enableSelectByExample="false" -->
+<!-- 			selectByExampleQueryId="false"></table> -->
+<!-- 	    顾客打赏记录表 -->
+<!-- 		<table tableName="box_gratuity_record" domainObjectName="GratuityRecord" -->
+<!-- 			enableCountByExample="false" enableUpdateByExample="false" -->
+<!-- 			enableDeleteByExample="false" enableSelectByExample="false" -->
+<!-- 			selectByExampleQueryId="false"></table> -->
+		<!-- 本周最火菜品表 -->
+<!-- 		<table tableName="box_hot_goods_week" domainObjectName="HotGoodsWeek" -->
+<!-- 			enableCountByExample="false" enableUpdateByExample="false" -->
+<!-- 			enableDeleteByExample="false" enableSelectByExample="false" -->
+<!-- 			selectByExampleQueryId="false"></table> -->
+<!-- 	    订单项属性表（云pos使用） -->
+<!-- 		<table tableName="box_item_prop" domainObjectName="ItemProp" -->
+<!-- 			enableCountByExample="false" enableUpdateByExample="false" -->
+<!-- 			enableDeleteByExample="false" enableSelectByExample="false" -->
+<!-- 			selectByExampleQueryId="false"></table> -->
+		<!-- 顾客排队信息表 -->
+<!-- 		<table tableName="box_line_up_info" domainObjectName="LineUpInfo" -->
+<!-- 			enableCountByExample="false" enableUpdateByExample="false" -->
+<!-- 			enableDeleteByExample="false" enableSelectByExample="false" -->
+<!-- 			selectByExampleQueryId="false"></table> -->
+		<!-- 机器表 -->
+<!-- 		<table tableName="box_machine" domainObjectName="Machine" -->
+<!-- 			enableCountByExample="false" enableUpdateByExample="false" -->
+<!-- 			enableDeleteByExample="false" enableSelectByExample="false" -->
+<!-- 			selectByExampleQueryId="false"></table> -->
+		<!-- 推荐菜品表 -->
+<!-- 		<table tableName="box_recommend_goods" domainObjectName="RecommendGoods" -->
+<!-- 			enableCountByExample="false" enableUpdateByExample="false" -->
+<!-- 			enableDeleteByExample="false" enableSelectByExample="false" -->
+<!-- 			selectByExampleQueryId="false"></table> -->
+		<!-- 桌台信息与订单信息关联表 -->
+<!-- 		<table tableName="box_rel_dining_order" domainObjectName="RelDiningAreaOrder" -->
+<!-- 			enableCountByExample="false" enableUpdateByExample="false" -->
+<!-- 			enableDeleteByExample="false" enableSelectByExample="false" -->
+<!-- 			selectByExampleQueryId="false"></table> -->
+		<!-- 扫码记录表 -->
+<!-- 		<table tableName="box_scan_code_record" domainObjectName="ScanCodeRecord" -->
+<!-- 			enableCountByExample="false" enableUpdateByExample="false" -->
+<!-- 			enableDeleteByExample="false" enableSelectByExample="false" -->
+<!-- 			selectByExampleQueryId="false"></table> -->
+		<!-- 呼叫服务推送记录表 -->
+<!-- 		<table tableName="box_service_push" domainObjectName="ServicePush" -->
+<!-- 			enableCountByExample="false" enableUpdateByExample="false" -->
+<!-- 			enableDeleteByExample="false" enableSelectByExample="false" -->
+<!-- 			selectByExampleQueryId="false"></table> -->
+		<!-- 店铺扩展表 -->
+<!-- 		<table tableName="box_shopper_extend" domainObjectName="ShopperExtend" -->
+<!-- 			enableCountByExample="false" enableUpdateByExample="false" -->
+<!-- 			enableDeleteByExample="false" enableSelectByExample="false" -->
+<!-- 			selectByExampleQueryId="false"></table> -->
+		<!-- 店铺排队配置表 -->
+<!-- 		<table tableName="box_shopper_line_up_config" domainObjectName="ShopperLineUpConfig" -->
+<!-- 			enableCountByExample="false" enableUpdateByExample="false" -->
+<!-- 			enableDeleteByExample="false" enableSelectByExample="false" -->
+<!-- 			selectByExampleQueryId="false"></table> -->
+		<!-- 店铺公告表 -->
+	<!-- 	<table tableName="box_shopper_notice" domainObjectName="ShopperNotice"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table> -->
+		<!-- 表 -->
+<!-- 		<table tableName="box_shopper_remind" domainObjectName="ShopperRemind" -->
+<!-- 			enableCountByExample="false" enableUpdateByExample="false" -->
+<!-- 			enableDeleteByExample="false" enableSelectByExample="false" -->
+<!-- 			selectByExampleQueryId="false"></table> -->
+		<!-- 表 -->
+<!-- 		<table tableName="box_shopper_service" domainObjectName="ShopperService" -->
+<!-- 			enableCountByExample="false" enableUpdateByExample="false" -->
+<!-- 			enableDeleteByExample="false" enableSelectByExample="false" -->
+<!-- 			selectByExampleQueryId="false"></table> -->
+		<!-- 表 -->
+<!-- 		<table tableName="box_size" domainObjectName="Size" -->
+<!-- 			enableCountByExample="false" enableUpdateByExample="false" -->
+<!-- 			enableDeleteByExample="false" enableSelectByExample="false" -->
+<!-- 			selectByExampleQueryId="false"></table> -->
+		<!-- 表 -->
+<!-- 		<table tableName="box_sweep_close" domainObjectName="SweepClose" -->
+<!-- 			enableCountByExample="false" enableUpdateByExample="false" -->
+<!-- 			enableDeleteByExample="false" enableSelectByExample="false" -->
+<!-- 			selectByExampleQueryId="false"></table> -->
+		<!-- 桌台类型表 -->
+<!-- 		<table tableName="box_table_type" domainObjectName="TableType" -->
+<!-- 			enableCountByExample="false" enableUpdateByExample="false" -->
+<!-- 			enableDeleteByExample="false" enableSelectByExample="false" -->
+<!-- 			selectByExampleQueryId="false"></table> -->
+<!-- 	    第三方授权关联表 -->
+<!-- 		<table tableName="box_third_party_authorization" domainObjectName="ThirdPartyAuthorization" -->
+<!-- 			enableCountByExample="false" enableUpdateByExample="false" -->
+<!-- 			enableDeleteByExample="false" enableSelectByExample="false" -->
+<!-- 			selectByExampleQueryId="false"></table> -->
+		<!-- 第三方用户信息表 -->
+<!-- 		<table tableName="box_third_user_info" domainObjectName="ThirdUserInfo" -->
+<!-- 			enableCountByExample="false" enableUpdateByExample="false" -->
+<!-- 			enableDeleteByExample="false" enableSelectByExample="false" -->
+<!-- 			selectByExampleQueryId="false"></table> -->
+		<!-- 员工资金账户表 -->
+<!-- 		<table tableName="box_waiter_fund_account" domainObjectName="WaiterFundAccount" -->
+<!-- 			enableCountByExample="false" enableUpdateByExample="false" -->
+<!-- 			enableDeleteByExample="false" enableSelectByExample="false" -->
+<!-- 			selectByExampleQueryId="false"></table> -->
+		<!-- 服务员提现申请表 -->
+<!-- 		<table tableName="box_waiter_withdrawal_apply" domainObjectName="WaiterWithdrawalApply" -->
+<!-- 			enableCountByExample="false" enableUpdateByExample="false" -->
+<!-- 			enableDeleteByExample="false" enableSelectByExample="false" -->
+<!-- 			selectByExampleQueryId="false"></table> -->
+			
+			<!-- 店铺配置信息表-->
+<!-- 		<table tableName="box_shopper_config" domainObjectName="BoxShopperConfig" -->
+<!-- 			enableCountByExample="false" enableUpdateByExample="false" -->
+<!-- 			enableDeleteByExample="false" enableSelectByExample="false" -->
+<!-- 			selectByExampleQueryId="false"></table> -->
+			<!-- 店铺配置信息表-->
+		<!-- <table tableName="box_trade_fund_channel" domainObjectName="TradeFundChannel"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table> -->
+		
+		<!-- <table tableName="box_business_encoding" domainObjectName="BusinessEncoding"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table> -->
+		<!-- 白名单配置表 -->
+		<!-- <table tableName="box_business_white_list" domainObjectName="BusinessWhiteList"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table> -->
+			<!-- 商家自定义装修明细表 -->
+			<!-- <table tableName="box_decoration_shop_config_detail" domainObjectName="DecorationShopConfigDetail"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table> -->
+			<!-- <table tableName="box_qrcode" domainObjectName="Qrcode"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table> -->
+			<!-- 支付方式 -->
+			<!-- <table tableName="box_pay_model" domainObjectName="PayModel"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table> -->
+			<!-- 取餐柜状态 -->
+			<!-- <table tableName="box_cupboard_order_record" domainObjectName="CupboardOrderRecord"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table> -->
+			<!--机器绑定表  -->
+			<!-- <table tableName="box_rel_machine_hardware" domainObjectName="RelMachineHardWare"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table> -->
+			<!--机器设置表 -->
+			<!-- <table tableName="box_machine_config" domainObjectName="MachineConfig"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table> -->
+			
+			<!--外卖时间表 -->
+			<!-- <table tableName="box_waimai_time_related" domainObjectName="WaimaiTimeRelated"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table> -->
+			<!-- 订单批次表 -->
+			<!-- <table tableName="box_waimai_bath" domainObjectName="WaimaiBath"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table> -->
+			
+			<!-- 订单超时记录表 -->
+			<!-- <table tableName="box_receipt_timeout_waimai" domainObjectName="ReceiptTimeoutWaimai"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table> -->
+			
+			
+	</context>
+</generatorConfiguration>  

@@ -1,0 +1,322 @@
+server:
+  port: 5001
+spring:
+  application:
+    name: springboot
+  profiles:
+    active: 
+      - config-native
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  datasource:
+    druid:
+      max-wait: 6000
+      pool-prepared-statements: false
+      max-pool-prepared-statement-per-connection-size: 20
+      max-open-prepared-statements: 20
+      validation-query: SELECT 'x'
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      time-between-connect-error-millis: 60000 
+      min-evictable-idle-time-millis: 300000
+      filter:
+        wall:
+          enabled: true
+          db-type: mysql
+          config:
+            drop-table-allow: false
+            multi-statement-allow: true
+        stat:
+          db-type: mysql
+          log-slow-sql: true
+          slow-sql-millis: 5000
+        slf4j:
+          enabled: true
+          statement-create-after-log-enabled: false
+          statement-close-after-log-enabled: false
+          result-set-open-after-log-enabled: false
+          result-set-close-after-log-enabled: false
+#Mybatis配置
+mybatis:
+  mapper-locations:
+    - classpath*:mapper/**/*Mapper.xml
+  config-location: classpath:mybatis-config.xml
+#请求会员所用参数
+customCommonCode: yCt6bSNhbcYVIg
+customSpecialCode: "*#06#8e"
+customPublicKey: 8er45fUfD15545qwwt23G
+
+#是否领取支付宝红包
+receiveRedEvenlope: 0
+#扫码点餐应用的APPID
+sweepOrder.APP_ID: 2015120700930571
+
+#公钥
+payment.ALIPAY_PUBLIC_KEY: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDDI6d306Q8fIfCOaTXyiUeJHkrIvYISRcc73s3vF1ZT7XN8RNPwJxo8pWaJMmvyTn9N4HQ632qJBVHf8sxHi/fEsraprwCtzvzQETrNRwVxLO5jVmRGi60j8Ue1efIlzPXV9je9mkjzOmdssymZkh2QhUrCmZYI/FCEa3/cNMW0QIDAQAB
+#RSA私钥
+payment.PRIVATE_KEY: "MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBANkQr05EI7zEuZbBnA6pbDhGFvpRrfQEypBC/k5QRzA3zvhHaHHOP8BJzrRHxSaAkoUWrs48XS1eogUBlq8TC0GMq8VzvzVJNP0PZWXmegjiSfApaYXRe8VwmtXarpLofsMoTSSj5hHLzFqxxEZoLyVuL8xIryqzqyOKg5zn4a97AgMBAAECgYBhpbnXMZwKDU2X3h0AE4NVhWJM1XW1snoVj62rOT3tGQ4Ibsczex7+t7U/MJImEezX5i5ZJJqeEFY+fkp1E9IZpJS63TkL3TBRiq0fVUlM4NCvGWrWoZbZXodooHFjHbRtbieZdKacQBV438t1OmfRyoMgU3VMu3qHB/k99d2KkQJBAPV60/5exvrnJa+L1KlBlC61gRLTpNCm/5H4eESacXrrkBM+gWff+csiDqH5+47s9uf7ooyRgLpHC+2dpwJT4JcCQQDiXh5MnkN+zqR7Wkm4YOI7LnVbTiwOw3wjBFHzs5OWCwBZfV64qa27FHe+r4WMeNUeU5tFqXrwWXWhg/HFbiC9AkEAhL8XRMcb8zJsPrHvHlhIOboNQpEQ34RvUBB9eRvLoh0gnEeA0xtbiW2xXAZC8tdR7cE19a35XsJswOIwHiIdoQJBAJDF1Ob3iP8+tZ9WfTN4cveanN/KPQ8sIuZaSvdrcAZT/uM89SlxC3VMf9DqfKT8WoDMw89ntwKklEC6HBRCfJkCQC5fsPGJ0ueWMZ5ayjcg8gzmroaACqW2gEtxCTvvyp+/CqGpUZlBgAfDm/h1yR0GQtDMG0cwrsbb9WNzkTI46QQ="
+
+alipay2.0.PARTNER: 2088002977962206
+
+#支付宝授权路径
+ALIPAY_OPEN_AUTH_URL: https\://openauth.alipay.com/oauth2/publicAppAuthorize.htm
+
+#本周最火默认显示数量
+default.hotGoodNum: 10
+
+#本周最火风格二下默认显示数量
+default.styleHotGoodNum: 20
+
+#清空桌台购物车及订单的时间（分钟）
+CLEAR_TABLE_MINUTE : 3
+
+#扫码下单一人选择人数，同桌其他人不显示人数时间设置（分钟）
+PEOPLE_SELECT_RESET_TIME : 3
+
+#订单支付最大执行时间(秒)
+ORDER_LOCK_PAY_TIME : 3
+#本地开发
+---
+spring:
+  profiles: config-native
+  datasource:
+    druid:
+      initial-size: 1
+      max-active: 20
+      min-idle: 1
+      one:
+        url: jdbc:mysql://192.168.1.13/silverbox?useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true
+        username: root
+        password: root
+      two:
+        url: jdbc:mysql://192.168.1.13/silverbox_waimai?useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true
+        username: root
+        password: root
+      #druid监控页面，开发时可以开启
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+        exclusions: "*.js.map,*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        #重置按钮
+        reset-enable: true
+        login-username: druid
+        login-password: druid
+      #connection-init-sqls: set sql_safe_updates=1
+
+  #redis 配置
+  redis:
+    host: 172.16.8.6
+    port: 6379
+    database: 4
+    timeout: 10000
+    pool:
+      max-active: 300
+      max-idle: 100
+      max-wait: 1000
+      
+#13领取优惠券地址
+coupon.url: http://test.blibao.com/server
+#图片地址
+server.url: http://img.blibao.com
+#13会员地址
+member.url: http://192.168.1.13/member
+#上传口碑订单接口
+koubeiUploadUrl: http://blibao.oicp.net:9991/KoubeiUpload
+#是否上传订单 true:上传，false:不上传
+uploadOrderFlag: false
+#领券接口（全场券）
+uploadUrl: http://test.api.blibao.com/upload
+
+#H5版本扫码下单路径
+sweepUrl: http://172.16.7.2:9080/SweepOrder
+
+#支付宝支付异步回调地址
+payment.NOTIFY_URL :  http://172.16.7.2:9080/silverbox-sweeporder/
+
+#图片上传
+API_SERVICE: http://openapi.blibao.com/ApiService/
+
+#新版扫码扫码下单VUE路径
+sweepOrderVueUrl : http://172.16.7.2\:9080/silverbox-sweeporder
+#服务窗项目路径
+serviceWindowUrl: http://test.api.blibao.com/service_window
+
+#微信支付地址
+wechatPay.url: http://test.blibao.com/sweep-pay
+
+#取餐柜请求开柜地址
+openIntelligence.url: http://test.api.blibao.com/smart-rest-gateway/api/gateway.htm
+
+#测试环境配置
+---
+spring:
+  profiles: config-test
+  datasource:
+    druid:
+      initial-size: 20
+      max-active: 100
+      min-idle: 20
+      one:
+        url: jdbc:mysql://rm-bp19x2kaetaimm66e.mysql.rds.aliyuncs.com:3306/silverbox?useUnicode=true&amp;characterEncoding=utf-8
+        username: silverbox_admin
+        password: 1qaz2wsx
+      two:
+        url: jdbc:mysql://rm-bp19x2kaetaimm66e.mysql.rds.aliyuncs.com:3306/silverbox_waimai?useUnicode=true&amp;characterEncoding=utf-8
+        username: silverbox_admin
+        password: 1qaz2wsx
+  #redis 配置
+  redis:
+    host: 121.40.18.72
+    port: 6379
+    database: 4
+    timeout: 10000
+    pool:
+      max-active: 300
+      max-idle: 100
+      max-wait: 1000
+#test领取优惠券地址
+coupon.url: http://test.blibao.com/server
+#test图片地址
+server.url: http://img.blibao.com
+#test会员地址
+member.url: http://test.blibao.com/member
+#test上传口碑订单接口
+koubeiUploadUrl: http://blibao.oicp.net:9991/KoubeiUpload
+#test是否上传订单 true:上传，false:不上传
+uploadOrderFlag: false
+#test领券接口（全场券）
+uploadUrl: http://test.api.blibao.com/upload
+
+#testH5版本扫码下单路径
+sweepUrl: http://test.blibao.com/sweep
+
+#test支付宝支付异步回调地址
+payment.NOTIFY_URL: http://test.blibao.com:5001/
+
+#test图片上传
+API_SERVICE: http://openapi.blibao.com/ApiService/
+
+#test新版扫码扫码下单VUE路径
+sweepOrderVueUrl: http://test.blibao.com:10080/smo
+#test服务窗项目路径
+serviceWindowUrl: http://test.api.blibao.com/service_window
+
+#test微信支付地址
+wechatPay.url: http://test.blibao.com/sweep-pay
+
+#test取餐柜请求开柜地址
+openIntelligence.url: http://test.api.blibao.com/smart-rest-gateway/api/gateway.htm
+
+#预发环境配置
+---
+spring:
+  profiles: config-pre
+  datasource:
+    druid:
+      initial-size: 20
+      max-active: 100
+      min-idle: 20
+      one:
+        url: jdbc:mysql://rdsnnu3uinnu3ui123.mysql.rds.aliyuncs.com:3306/silverbox?useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true
+        username: silverbox_admin
+        password: 1qaz2wsx
+      two:
+        url: jdbc:mysql://rdsnnu3uinnu3ui123.mysql.rds.aliyuncs.com:3306/silverbox_waimai?useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true
+        username: silverbox_admin
+        password: 1qaz2wsx
+  #redis 配置
+  redis:
+    host: r-bp1f170486828e84.redis.rds.aliyuncs.com
+    password: 12345qwerT
+    port: 6379
+    database: 20
+    timeout: 10000
+    pool:
+      max-active: 300
+      max-idle: 100
+      max-wait: 1000
+#pre领取优惠券地址
+coupon.url: http://cloud.blibao.com/server
+#pre图片地址
+server.url: http://img.blibao.com
+#pre会员地址
+member.url: http://i.blibao.com
+#pre上传口碑订单接口
+koubeiUploadUrl: http://kb.up.blibao.com/koubei-upload
+#pre是否上传订单 true:上传，false:不上传
+uploadOrderFlag: true
+#pre领券接口（全场券）
+uploadUrl: http://upload.blibao.com/ApiService
+#preH5版本扫码下单路径
+sweepUrl: http://pre.test.web.blibao.com/sweep
+#pre支付宝支付异步回调地址
+payment.NOTIFY_URL: http://pre.test.web.blibao.com:5001/
+#pre图片上传
+API_SERVICE: http://pre.test.api.blibao.com/upload
+#pre新版扫码扫码下单VUE路径
+sweepOrderVueUrl: http://pre.test.web.blibao.com:10080/smo
+#pre服务窗项目路径
+serviceWindowUrl: http://pre.test.web.blibao.com/service-window
+#pre微信支付地址
+wechatPay.url: http://o2o.order.blibao.com/ApiService
+#pre取餐柜请求开柜地址
+openIntelligence.url: http://smart.blibao.com/api/gateway.htm
+#生产环境配置
+---
+spring:
+  profiles: config-prod
+  datasource:
+    druid:
+      initial-size: 20
+      max-active: 100
+      min-idle: 20
+      one:
+        url: jdbc:mysql://rdsnnu3uinnu3ui123.mysql.rds.aliyuncs.com:3306/silverbox?useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true
+        username: silverbox_admin
+        password: 1qaz2wsx
+      two:
+        url: jdbc:mysql://rdsnnu3uinnu3ui123.mysql.rds.aliyuncs.com:3306/silverbox_waimai?useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true
+        username: silverbox_admin
+        password: 1qaz2wsx
+  #redis 配置
+  redis:
+    host: r-bp1f170486828e84.redis.rds.aliyuncs.com
+    password: 12345qwerT
+    port: 6379
+    database: 20
+    timeout: 10000
+    pool:
+      max-active: 300
+      max-idle: 100
+      max-wait: 1000
+#cloud领取优惠券地址
+coupon.url: http://cloud.blibao.com/server
+#cloud图片地址
+server.url: https://img.blibao.com
+#cloud会员地址
+member.url: http://i.blibao.com
+#cloud上传口碑订单接口
+koubeiUploadUrl: http://kb.up.blibao.com/koubei-upload
+#cloud是否上传订单 true:上传，false:不上传
+uploadOrderFlag: true
+#cloud领券接口（全场券）
+uploadUrl: http://upload.blibao.com/ApiService
+#cloudH5版本扫码下单路径
+sweepUrl: http://b2b.blibao.com/sweep
+#cloud支付宝支付异步回调地址
+payment.NOTIFY_URL: https://d2.blibao.com/smo/
+#cloud图片上传
+API_SERVICE: http://upload.blibao.com/ApiService
+#cloud新版扫码扫码下单VUE路径
+sweepOrderVueUrl : https://d2.blibao.com/
+#cloud服务窗项目路径
+serviceWindowUrl: http://b2b.blibao.com/svrwin
+#cloud微信支付地址
+wechatPay.url: http://o2o.order.blibao.com/ApiService
+#cloud取餐柜请求开柜地址
+openIntelligence.url: http://smart.blibao.com/api/gateway.htm

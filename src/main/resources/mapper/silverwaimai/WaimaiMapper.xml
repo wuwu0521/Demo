@@ -1,0 +1,1206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.dao.silverwaimai.WaimaiMapper">
+  <resultMap id="BaseResultMap" type="com.springboot.entity.silverwaimai.Waimai">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="order_num" jdbcType="VARCHAR" property="orderNum" />
+    <result column="order_seq" jdbcType="INTEGER" property="orderSeq" />
+    <result column="order_type" jdbcType="INTEGER" property="orderType" />
+    <result column="order_status" jdbcType="INTEGER" property="orderStatus" />
+    <result column="buyer_id" jdbcType="VARCHAR" property="buyerId" />
+    <result column="shopper_id" jdbcType="INTEGER" property="shopperId" />
+    <result column="shop_id" jdbcType="INTEGER" property="shopId" />
+    <result column="shop_name" jdbcType="VARCHAR" property="shopName" />
+    <result column="machine_id" jdbcType="BIGINT" property="machineId" />
+    <result column="outer_support_id" jdbcType="BIGINT" property="outerSupportId" />
+    <result column="original_price" jdbcType="DOUBLE" property="originalPrice" />
+	<result column="total_fee" jdbcType="DOUBLE" property="totalFee" />
+    <result column="total_price" jdbcType="DOUBLE" property="totalPrice" />
+    <result column="pay_status" jdbcType="INTEGER" property="payStatus" />
+    <result column="pay_model" jdbcType="INTEGER" property="payModel" />
+    <result column="total_pay" jdbcType="DOUBLE" property="totalPay" />
+    <result column="third_promotion_fee" jdbcType="DOUBLE" property="thirdPromotionFee" />
+    <result column="payPlatform_promotion_fee" jdbcType="DOUBLE" property="payplatformPromotionFee" />
+    <result column="table_uid" jdbcType="VARCHAR" property="tableUid" />
+    <result column="table_num" jdbcType="VARCHAR" property="tableNum" />
+    <result column="trade_no" jdbcType="VARCHAR" property="tradeNo" />
+    <result column="buyer_rerfund_timeout" jdbcType="INTEGER" property="buyerRerfundTimeout" />
+    <result column="deliverer_name" jdbcType="VARCHAR" property="delivererName" />
+    <result column="deliverer_phone" jdbcType="VARCHAR" property="delivererPhone" />
+    <result column="delivery_pay" jdbcType="DOUBLE" property="deliveryPay" />
+    <result column="end_delivery_time" jdbcType="VARCHAR" property="endDeliveryTime" />
+    <result column="end_seconds" jdbcType="INTEGER" property="endSeconds" />
+    <result column="buyer_mobile" jdbcType="VARCHAR" property="buyerMobile" />
+    <result column="buy_nick" jdbcType="VARCHAR" property="buyNick" />
+    <result column="buyer_phone" jdbcType="VARCHAR" property="buyerPhone" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="invoice_title" jdbcType="VARCHAR" property="invoiceTitle" />
+    <result column="is_hexiao" jdbcType="INTEGER" property="isHexiao" />
+    <result column="identifying_code" jdbcType="VARCHAR" property="identifyingCode" />
+    <result column="is_out" jdbcType="INTEGER" property="isOut" />
+    <result column="is_print" jdbcType="INTEGER" property="isPrint" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
+    <result column="pay_account" jdbcType="VARCHAR" property="payAccount" />
+    <result column="people_number" jdbcType="INTEGER" property="peopleNumber" />
+    <result column="promotion_desc" jdbcType="VARCHAR" property="promotionDesc" />
+    <result column="promotion_name" jdbcType="VARCHAR" property="promotionName" />
+    <result column="promotion_price" jdbcType="DOUBLE" property="promotionPrice" />
+    <result column="promotion_type" jdbcType="INTEGER" property="promotionType" />
+    <result column="refund_fee" jdbcType="DOUBLE" property="refundFee" />
+    <result column="refund_no" jdbcType="VARCHAR" property="refundNo" />
+    <result column="refund_time" jdbcType="TIMESTAMP" property="refundTime" />
+    <result column="seller_coupon_fee" jdbcType="INTEGER" property="sellerCouponFee" />
+    <result column="seller_rerfund_timeout" jdbcType="INTEGER" property="sellerRerfundTimeout" />
+    <result column="shop_contact_phone" jdbcType="VARCHAR" property="shopContactPhone" />
+    <result column="shop_logo" jdbcType="VARCHAR" property="shopLogo" />
+    <result column="start_delivery_time" jdbcType="VARCHAR" property="startDeliveryTime" />
+    <result column="time_out_stamp" jdbcType="TIMESTAMP" property="timeOutStamp" />
+    <result column="cancle_reason" jdbcType="VARCHAR" property="cancleReason" />
+    <result column="refuse_message" jdbcType="VARCHAR" property="refuseMessage" />
+    <result column="shopper_name" jdbcType="VARCHAR" property="shopperName" />
+    <result column="is_promotion" jdbcType="INTEGER" property="isPromotion" />
+    <result column="shop_address" jdbcType="VARCHAR" property="shopAddress" />
+    <result column="is_chain_store" jdbcType="INTEGER" property="isChainStore" />
+    <result column="is_alipay_order" jdbcType="INTEGER" property="isAlipayOrder" />
+    <result column="is_delete" jdbcType="INTEGER" property="isDelete" />
+    <result column="hexiao_type" jdbcType="INTEGER" property="hexiaoType" />
+    <result column="other_price" jdbcType="DOUBLE" property="otherPrice" />
+    <result column="is_checkout" jdbcType="INTEGER" property="isCheckout" />
+    <result column="actual_amount" jdbcType="DOUBLE" property="actualAmount" />
+    <result column="source" jdbcType="INTEGER" property="source" />
+    <result column="uid" jdbcType="VARCHAR" property="uid" />
+    <result column="is_other_pay" jdbcType="INTEGER" property="isOtherPay" />
+    <result column="koubei_shopId" jdbcType="VARCHAR" property="koubeiShopid" />
+    <result column="is_open_invoice" jdbcType="INTEGER" property="isOpenInvoice" />
+    <result column="is_rid" jdbcType="INTEGER" property="isRid" />
+    <result column="rid_price" jdbcType="DOUBLE" property="ridPrice" />
+    <result column="reach_time" jdbcType="VARCHAR" property="reachTime" />
+    <result column="consign_time" jdbcType="VARCHAR" property="consignTime" />
+    <result column="out_order_num" jdbcType="VARCHAR" property="outOrderNum" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="pay_time" jdbcType="TIMESTAMP" property="payTime" />
+    <result column="receiver_lng" jdbcType="VARCHAR" property="receiverLng" />
+    <result column="receiver_lat" jdbcType="VARCHAR" property="receiverLat" />
+    <result column="delivery_status" jdbcType="INTEGER" property="deliveryStatus" />
+    <result column="receiver_sex" jdbcType="INTEGER" property="receiverSex" />
+    <result column="take_out_method" jdbcType="INTEGER" property="takeOutMethod" />
+    <result column="receiver_name" jdbcType="VARCHAR" property="receiverName" />
+    <result column="prep_meal_status" jdbcType="INTEGER" property="prepMealStatus" />
+    <result column="container_num" jdbcType="VARCHAR" property="containerNum" />
+    <result column="out_take_no" jdbcType="VARCHAR" property="outTakeNo" />
+    <result column="lock_status" jdbcType="INTEGER" property="lockStatus" />
+    <result column="lock_time" jdbcType="TIMESTAMP" property="lockTime" />
+    <result column="pos_version" jdbcType="INTEGER" property="posVersion" />
+    <result column="pay_order_num" jdbcType="VARCHAR" property="payOrderNum" />
+    <result column="pay_code" jdbcType="VARCHAR" property="payCode" />
+    <result column="receipt_timeout" jdbcType="TIMESTAMP" property="receiptTimeout" />
+    <result column="reserve_time" jdbcType="TIMESTAMP" property="reserveTime" />
+    <result column="buyer_default_real_amount" jdbcType="DOUBLE" property="buyerDefaultRealAmount" />
+    <result column="third_system_order_num" jdbcType="VARCHAR" property="thirdSystemOrderNum" />
+    <result column="insert_time" jdbcType="DATE" property="insertTime" />
+    <result column="take_meal_code" jdbcType="VARCHAR" property="takeMealCode" />
+    <result column="job_num" jdbcType="VARCHAR" property="jobNum" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, order_num, order_seq, order_type, order_status, buyer_id, shopper_id, shop_id, 
+    shop_name, machine_id, outer_support_id, original_price, <!-- total_fee,  -->total_price, 
+    pay_status, pay_model, total_pay, third_promotion_fee, payPlatform_promotion_fee, 
+    table_uid, table_num, trade_no, buyer_rerfund_timeout, deliverer_name, deliverer_phone, 
+    delivery_pay, end_delivery_time, end_seconds, buyer_mobile, buy_nick, buyer_phone, 
+    address, invoice_title, is_hexiao, identifying_code, is_out, is_print, note, pay_account, 
+    people_number, promotion_desc, promotion_name, promotion_price, promotion_type, refund_fee, 
+    refund_no, refund_time, seller_coupon_fee, seller_rerfund_timeout, shop_contact_phone, 
+    shop_logo, start_delivery_time, time_out_stamp, cancle_reason, refuse_message, shopper_name, 
+    is_promotion, shop_address, is_chain_store, is_alipay_order, is_delete, hexiao_type, 
+    other_price, is_checkout, actual_amount, source, uid, is_other_pay, koubei_shopId,
+    is_open_invoice , is_rid, rid_price, reach_time, consign_time, out_order_num, create_time, 
+    update_time, pay_time, receiver_lng, receiver_lat, delivery_status, receiver_sex, 
+    take_out_method, receiver_name, prep_meal_status, container_num, out_take_no, lock_status, 
+    lock_time, pos_version, pay_order_num, pay_code, receipt_timeout, reserve_time, buyer_default_real_amount, 
+    third_system_order_num, insert_time, take_meal_code, job_num
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from box_waimai
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from box_waimai
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.springboot.entity.silverwaimai.Waimai">
+    insert into box_waimai (id, order_num, order_seq, 
+      order_type, order_status, buyer_id, 
+      shopper_id, shop_id, shop_name, 
+      machine_id, outer_support_id, original_price, 
+      total_fee, total_price, pay_status, 
+      pay_model, total_pay, third_promotion_fee, 
+      payPlatform_promotion_fee, table_uid, table_num, 
+      trade_no, buyer_rerfund_timeout, deliverer_name, 
+      deliverer_phone, delivery_pay, end_delivery_time, 
+      end_seconds, buyer_mobile, buy_nick, 
+      buyer_phone, address, invoice_title, 
+      is_hexiao, identifying_code, is_out, 
+      is_print, note, pay_account, 
+      people_number, promotion_desc, promotion_name, 
+      promotion_price, promotion_type, refund_fee, 
+      refund_no, refund_time, seller_coupon_fee, 
+      seller_rerfund_timeout, shop_contact_phone, 
+      shop_logo, start_delivery_time, time_out_stamp, 
+      cancle_reason, refuse_message, shopper_name, 
+      is_promotion, shop_address, is_chain_store, 
+      is_alipay_order, is_delete, hexiao_type, 
+      other_price, is_checkout, actual_amount, 
+      source, uid, is_other_pay, 
+      koubei_shopId, is_open_invoice, is_rid, 
+      rid_price, reach_time, consign_time, 
+      out_order_num, create_time, update_time, 
+      pay_time, receiver_lng, receiver_lat, 
+      delivery_status, receiver_sex, take_out_method, 
+      receiver_name, prep_meal_status, container_num, 
+      out_take_no, lock_status, lock_time, 
+      pos_version, pay_order_num, pay_code, 
+      receipt_timeout, reserve_time, buyer_default_real_amount, 
+      third_system_order_num, insert_time, take_meal_code, 
+      job_num)
+    values (#{id,jdbcType=BIGINT}, #{orderNum,jdbcType=VARCHAR}, #{orderSeq,jdbcType=INTEGER}, 
+      #{orderType,jdbcType=INTEGER}, #{orderStatus,jdbcType=INTEGER}, #{buyerId,jdbcType=VARCHAR}, 
+      #{shopperId,jdbcType=INTEGER}, #{shopId,jdbcType=INTEGER}, #{shopName,jdbcType=VARCHAR}, 
+      #{machineId,jdbcType=BIGINT}, #{outerSupportId,jdbcType=BIGINT}, #{originalPrice,jdbcType=DOUBLE}, 
+      #{totalFee,jdbcType=DOUBLE}, #{totalPrice,jdbcType=DOUBLE}, #{payStatus,jdbcType=INTEGER}, 
+      #{payModel,jdbcType=INTEGER}, #{totalPay,jdbcType=DOUBLE}, #{thirdPromotionFee,jdbcType=DOUBLE}, 
+      #{payplatformPromotionFee,jdbcType=DOUBLE}, #{tableUid,jdbcType=VARCHAR}, #{tableNum,jdbcType=VARCHAR}, 
+      #{tradeNo,jdbcType=VARCHAR}, #{buyerRerfundTimeout,jdbcType=INTEGER}, #{delivererName,jdbcType=VARCHAR}, 
+      #{delivererPhone,jdbcType=VARCHAR}, #{deliveryPay,jdbcType=DOUBLE}, #{endDeliveryTime,jdbcType=VARCHAR}, 
+      #{endSeconds,jdbcType=INTEGER}, #{buyerMobile,jdbcType=VARCHAR}, #{buyNick,jdbcType=VARCHAR}, 
+      #{buyerPhone,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{invoiceTitle,jdbcType=VARCHAR}, 
+      #{isHexiao,jdbcType=INTEGER}, #{identifyingCode,jdbcType=VARCHAR}, #{isOut,jdbcType=INTEGER}, 
+      #{isPrint,jdbcType=INTEGER}, #{note,jdbcType=VARCHAR}, #{payAccount,jdbcType=VARCHAR}, 
+      #{peopleNumber,jdbcType=INTEGER}, #{promotionDesc,jdbcType=VARCHAR}, #{promotionName,jdbcType=VARCHAR}, 
+      #{promotionPrice,jdbcType=DOUBLE}, #{promotionType,jdbcType=INTEGER}, #{refundFee,jdbcType=DOUBLE}, 
+      #{refundNo,jdbcType=VARCHAR}, #{refundTime,jdbcType=TIMESTAMP}, #{sellerCouponFee,jdbcType=INTEGER}, 
+      #{sellerRerfundTimeout,jdbcType=INTEGER}, #{shopContactPhone,jdbcType=VARCHAR}, 
+      #{shopLogo,jdbcType=VARCHAR}, #{startDeliveryTime,jdbcType=VARCHAR}, #{timeOutStamp,jdbcType=TIMESTAMP}, 
+      #{cancleReason,jdbcType=VARCHAR}, #{refuseMessage,jdbcType=VARCHAR}, #{shopperName,jdbcType=VARCHAR}, 
+      #{isPromotion,jdbcType=INTEGER}, #{shopAddress,jdbcType=VARCHAR}, #{isChainStore,jdbcType=INTEGER}, 
+      #{isAlipayOrder,jdbcType=INTEGER}, #{isDelete,jdbcType=INTEGER}, #{hexiaoType,jdbcType=INTEGER}, 
+      #{otherPrice,jdbcType=DOUBLE}, #{isCheckout,jdbcType=INTEGER}, #{actualAmount,jdbcType=DOUBLE}, 
+      #{source,jdbcType=INTEGER}, #{uid,jdbcType=VARCHAR}, #{isOtherPay,jdbcType=INTEGER}, 
+      #{koubeiShopid,jdbcType=VARCHAR}, #{isOpenInvoice,jdbcType=INTEGER}, #{isRid,jdbcType=INTEGER}, 
+      #{ridPrice,jdbcType=DOUBLE}, #{reachTime,jdbcType=VARCHAR}, #{consignTime,jdbcType=VARCHAR}, 
+      #{outOrderNum,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{payTime,jdbcType=TIMESTAMP}, #{receiverLng,jdbcType=VARCHAR}, #{receiverLat,jdbcType=VARCHAR}, 
+      #{deliveryStatus,jdbcType=INTEGER}, #{receiverSex,jdbcType=INTEGER}, #{takeOutMethod,jdbcType=INTEGER}, 
+      #{receiverName,jdbcType=VARCHAR}, #{prepMealStatus,jdbcType=INTEGER}, #{containerNum,jdbcType=VARCHAR}, 
+      #{outTakeNo,jdbcType=VARCHAR}, #{lockStatus,jdbcType=INTEGER}, #{lockTime,jdbcType=TIMESTAMP}, 
+      #{posVersion,jdbcType=INTEGER}, #{payOrderNum,jdbcType=VARCHAR}, #{payCode,jdbcType=VARCHAR}, 
+      #{receiptTimeout,jdbcType=TIMESTAMP}, #{reserveTime,jdbcType=TIMESTAMP}, #{buyerDefaultRealAmount,jdbcType=DOUBLE}, 
+      #{thirdSystemOrderNum,jdbcType=VARCHAR}, #{insertTime,jdbcType=DATE}, #{takeMealCode,jdbcType=VARCHAR}, 
+      #{jobNum,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.springboot.entity.silverwaimai.Waimai">
+    insert into box_waimai
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="orderNum != null">
+        order_num,
+      </if>
+      <if test="orderSeq != null">
+        order_seq,
+      </if>
+      <if test="orderType != null">
+        order_type,
+      </if>
+      <if test="orderStatus != null">
+        order_status,
+      </if>
+      <if test="buyerId != null">
+        buyer_id,
+      </if>
+      <if test="shopperId != null">
+        shopper_id,
+      </if>
+      <if test="shopId != null">
+        shop_id,
+      </if>
+      <if test="shopName != null">
+        shop_name,
+      </if>
+      <if test="machineId != null">
+        machine_id,
+      </if>
+      <if test="outerSupportId != null">
+        outer_support_id,
+      </if>
+      <if test="originalPrice != null">
+        original_price,
+      </if>
+      <if test="totalFee != null">
+        total_fee,
+      </if>
+      <if test="totalPrice != null">
+        total_price,
+      </if>
+      <if test="payStatus != null">
+        pay_status,
+      </if>
+      <if test="payModel != null">
+        pay_model,
+      </if>
+      <if test="totalPay != null">
+        total_pay,
+      </if>
+      <if test="thirdPromotionFee != null">
+        third_promotion_fee,
+      </if>
+      <if test="payplatformPromotionFee != null">
+        payPlatform_promotion_fee,
+      </if>
+      <if test="tableUid != null">
+        table_uid,
+      </if>
+      <if test="tableNum != null">
+        table_num,
+      </if>
+      <if test="tradeNo != null">
+        trade_no,
+      </if>
+      <if test="buyerRerfundTimeout != null">
+        buyer_rerfund_timeout,
+      </if>
+      <if test="delivererName != null">
+        deliverer_name,
+      </if>
+      <if test="delivererPhone != null">
+        deliverer_phone,
+      </if>
+      <if test="deliveryPay != null">
+        delivery_pay,
+      </if>
+      <if test="endDeliveryTime != null">
+        end_delivery_time,
+      </if>
+      <if test="endSeconds != null">
+        end_seconds,
+      </if>
+      <if test="buyerMobile != null">
+        buyer_mobile,
+      </if>
+      <if test="buyNick != null">
+        buy_nick,
+      </if>
+      <if test="buyerPhone != null">
+        buyer_phone,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="invoiceTitle != null">
+        invoice_title,
+      </if>
+      <if test="isHexiao != null">
+        is_hexiao,
+      </if>
+      <if test="identifyingCode != null">
+        identifying_code,
+      </if>
+      <if test="isOut != null">
+        is_out,
+      </if>
+      <if test="isPrint != null">
+        is_print,
+      </if>
+      <if test="note != null">
+        note,
+      </if>
+      <if test="payAccount != null">
+        pay_account,
+      </if>
+      <if test="peopleNumber != null">
+        people_number,
+      </if>
+      <if test="promotionDesc != null">
+        promotion_desc,
+      </if>
+      <if test="promotionName != null">
+        promotion_name,
+      </if>
+      <if test="promotionPrice != null">
+        promotion_price,
+      </if>
+      <if test="promotionType != null">
+        promotion_type,
+      </if>
+      <if test="refundFee != null">
+        refund_fee,
+      </if>
+      <if test="refundNo != null">
+        refund_no,
+      </if>
+      <if test="refundTime != null">
+        refund_time,
+      </if>
+      <if test="sellerCouponFee != null">
+        seller_coupon_fee,
+      </if>
+      <if test="sellerRerfundTimeout != null">
+        seller_rerfund_timeout,
+      </if>
+      <if test="shopContactPhone != null">
+        shop_contact_phone,
+      </if>
+      <if test="shopLogo != null">
+        shop_logo,
+      </if>
+      <if test="startDeliveryTime != null">
+        start_delivery_time,
+      </if>
+      <if test="timeOutStamp != null">
+        time_out_stamp,
+      </if>
+      <if test="cancleReason != null">
+        cancle_reason,
+      </if>
+      <if test="refuseMessage != null">
+        refuse_message,
+      </if>
+      <if test="shopperName != null">
+        shopper_name,
+      </if>
+      <if test="isPromotion != null">
+        is_promotion,
+      </if>
+      <if test="shopAddress != null">
+        shop_address,
+      </if>
+      <if test="isChainStore != null">
+        is_chain_store,
+      </if>
+      <if test="isAlipayOrder != null">
+        is_alipay_order,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+      <if test="hexiaoType != null">
+        hexiao_type,
+      </if>
+      <if test="otherPrice != null">
+        other_price,
+      </if>
+      <if test="isCheckout != null">
+        is_checkout,
+      </if>
+      <if test="actualAmount != null">
+        actual_amount,
+      </if>
+      <if test="source != null">
+        source,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="isOtherPay != null">
+        is_other_pay,
+      </if>
+      <if test="koubeiShopid != null">
+        koubei_shopId,
+      </if>
+      <if test="isOpenInvoice != null">
+        is_open_invoice,
+      </if>
+      <if test="isRid != null">
+        is_rid,
+      </if>
+      <if test="ridPrice != null">
+        rid_price,
+      </if>
+      <if test="reachTime != null">
+        reach_time,
+      </if>
+      <if test="consignTime != null">
+        consign_time,
+      </if>
+      <if test="outOrderNum != null">
+        out_order_num,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="payTime != null">
+        pay_time,
+      </if>
+      <if test="receiverLng != null">
+        receiver_lng,
+      </if>
+      <if test="receiverLat != null">
+        receiver_lat,
+      </if>
+      <if test="deliveryStatus != null">
+        delivery_status,
+      </if>
+      <if test="receiverSex != null">
+        receiver_sex,
+      </if>
+      <if test="takeOutMethod != null">
+        take_out_method,
+      </if>
+      <if test="receiverName != null">
+        receiver_name,
+      </if>
+      <if test="prepMealStatus != null">
+        prep_meal_status,
+      </if>
+      <if test="containerNum != null">
+        container_num,
+      </if>
+      <if test="outTakeNo != null">
+        out_take_no,
+      </if>
+      <if test="lockStatus != null">
+        lock_status,
+      </if>
+      <if test="lockTime != null">
+        lock_time,
+      </if>
+      <if test="posVersion != null">
+        pos_version,
+      </if>
+      <if test="payOrderNum != null">
+        pay_order_num,
+      </if>
+      <if test="payCode != null">
+        pay_code,
+      </if>
+      <if test="receiptTimeout != null">
+        receipt_timeout,
+      </if>
+      <if test="reserveTime != null">
+        reserve_time,
+      </if>
+      <if test="buyerDefaultRealAmount != null">
+        buyer_default_real_amount,
+      </if>
+      <if test="thirdSystemOrderNum != null">
+        third_system_order_num,
+      </if>
+      <if test="insertTime != null">
+        insert_time,
+      </if>
+      <if test="takeMealCode != null">
+        take_meal_code,
+      </if>
+      <if test="jobNum != null">
+        job_num,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="orderNum != null">
+        #{orderNum,jdbcType=VARCHAR},
+      </if>
+      <if test="orderSeq != null">
+        #{orderSeq,jdbcType=INTEGER},
+      </if>
+      <if test="orderType != null">
+        #{orderType,jdbcType=INTEGER},
+      </if>
+      <if test="orderStatus != null">
+        #{orderStatus,jdbcType=INTEGER},
+      </if>
+      <if test="buyerId != null">
+        #{buyerId,jdbcType=VARCHAR},
+      </if>
+      <if test="shopperId != null">
+        #{shopperId,jdbcType=INTEGER},
+      </if>
+      <if test="shopId != null">
+        #{shopId,jdbcType=INTEGER},
+      </if>
+      <if test="shopName != null">
+        #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="machineId != null">
+        #{machineId,jdbcType=BIGINT},
+      </if>
+      <if test="outerSupportId != null">
+        #{outerSupportId,jdbcType=BIGINT},
+      </if>
+      <if test="originalPrice != null">
+        #{originalPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="totalFee != null">
+        #{totalFee,jdbcType=DOUBLE},
+      </if>
+      <if test="totalPrice != null">
+        #{totalPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="payStatus != null">
+        #{payStatus,jdbcType=INTEGER},
+      </if>
+      <if test="payModel != null">
+        #{payModel,jdbcType=INTEGER},
+      </if>
+      <if test="totalPay != null">
+        #{totalPay,jdbcType=DOUBLE},
+      </if>
+      <if test="thirdPromotionFee != null">
+        #{thirdPromotionFee,jdbcType=DOUBLE},
+      </if>
+      <if test="payplatformPromotionFee != null">
+        #{payplatformPromotionFee,jdbcType=DOUBLE},
+      </if>
+      <if test="tableUid != null">
+        #{tableUid,jdbcType=VARCHAR},
+      </if>
+      <if test="tableNum != null">
+        #{tableNum,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeNo != null">
+        #{tradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerRerfundTimeout != null">
+        #{buyerRerfundTimeout,jdbcType=INTEGER},
+      </if>
+      <if test="delivererName != null">
+        #{delivererName,jdbcType=VARCHAR},
+      </if>
+      <if test="delivererPhone != null">
+        #{delivererPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryPay != null">
+        #{deliveryPay,jdbcType=DOUBLE},
+      </if>
+      <if test="endDeliveryTime != null">
+        #{endDeliveryTime,jdbcType=VARCHAR},
+      </if>
+      <if test="endSeconds != null">
+        #{endSeconds,jdbcType=INTEGER},
+      </if>
+      <if test="buyerMobile != null">
+        #{buyerMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="buyNick != null">
+        #{buyNick,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerPhone != null">
+        #{buyerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceTitle != null">
+        #{invoiceTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="isHexiao != null">
+        #{isHexiao,jdbcType=INTEGER},
+      </if>
+      <if test="identifyingCode != null">
+        #{identifyingCode,jdbcType=VARCHAR},
+      </if>
+      <if test="isOut != null">
+        #{isOut,jdbcType=INTEGER},
+      </if>
+      <if test="isPrint != null">
+        #{isPrint,jdbcType=INTEGER},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="payAccount != null">
+        #{payAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="peopleNumber != null">
+        #{peopleNumber,jdbcType=INTEGER},
+      </if>
+      <if test="promotionDesc != null">
+        #{promotionDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="promotionName != null">
+        #{promotionName,jdbcType=VARCHAR},
+      </if>
+      <if test="promotionPrice != null">
+        #{promotionPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="promotionType != null">
+        #{promotionType,jdbcType=INTEGER},
+      </if>
+      <if test="refundFee != null">
+        #{refundFee,jdbcType=DOUBLE},
+      </if>
+      <if test="refundNo != null">
+        #{refundNo,jdbcType=VARCHAR},
+      </if>
+      <if test="refundTime != null">
+        #{refundTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sellerCouponFee != null">
+        #{sellerCouponFee,jdbcType=INTEGER},
+      </if>
+      <if test="sellerRerfundTimeout != null">
+        #{sellerRerfundTimeout,jdbcType=INTEGER},
+      </if>
+      <if test="shopContactPhone != null">
+        #{shopContactPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="shopLogo != null">
+        #{shopLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="startDeliveryTime != null">
+        #{startDeliveryTime,jdbcType=VARCHAR},
+      </if>
+      <if test="timeOutStamp != null">
+        #{timeOutStamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cancleReason != null">
+        #{cancleReason,jdbcType=VARCHAR},
+      </if>
+      <if test="refuseMessage != null">
+        #{refuseMessage,jdbcType=VARCHAR},
+      </if>
+      <if test="shopperName != null">
+        #{shopperName,jdbcType=VARCHAR},
+      </if>
+      <if test="isPromotion != null">
+        #{isPromotion,jdbcType=INTEGER},
+      </if>
+      <if test="shopAddress != null">
+        #{shopAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="isChainStore != null">
+        #{isChainStore,jdbcType=INTEGER},
+      </if>
+      <if test="isAlipayOrder != null">
+        #{isAlipayOrder,jdbcType=INTEGER},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="hexiaoType != null">
+        #{hexiaoType,jdbcType=INTEGER},
+      </if>
+      <if test="otherPrice != null">
+        #{otherPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="isCheckout != null">
+        #{isCheckout,jdbcType=INTEGER},
+      </if>
+      <if test="actualAmount != null">
+        #{actualAmount,jdbcType=DOUBLE},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="isOtherPay != null">
+        #{isOtherPay,jdbcType=INTEGER},
+      </if>
+      <if test="koubeiShopid != null">
+        #{koubeiShopid,jdbcType=VARCHAR},
+      </if>
+      <if test="isOpenInvoice != null">
+        #{isOpenInvoice,jdbcType=INTEGER},
+      </if>
+      <if test="isRid != null">
+        #{isRid,jdbcType=INTEGER},
+      </if>
+      <if test="ridPrice != null">
+        #{ridPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="reachTime != null">
+        #{reachTime,jdbcType=VARCHAR},
+      </if>
+      <if test="consignTime != null">
+        #{consignTime,jdbcType=VARCHAR},
+      </if>
+      <if test="outOrderNum != null">
+        #{outOrderNum,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payTime != null">
+        #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="receiverLng != null">
+        #{receiverLng,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverLat != null">
+        #{receiverLat,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryStatus != null">
+        #{deliveryStatus,jdbcType=INTEGER},
+      </if>
+      <if test="receiverSex != null">
+        #{receiverSex,jdbcType=INTEGER},
+      </if>
+      <if test="takeOutMethod != null">
+        #{takeOutMethod,jdbcType=INTEGER},
+      </if>
+      <if test="receiverName != null">
+        #{receiverName,jdbcType=VARCHAR},
+      </if>
+      <if test="prepMealStatus != null">
+        #{prepMealStatus,jdbcType=INTEGER},
+      </if>
+      <if test="containerNum != null">
+        #{containerNum,jdbcType=VARCHAR},
+      </if>
+      <if test="outTakeNo != null">
+        #{outTakeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lockStatus != null">
+        #{lockStatus,jdbcType=INTEGER},
+      </if>
+      <if test="lockTime != null">
+        #{lockTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="posVersion != null">
+        #{posVersion,jdbcType=INTEGER},
+      </if>
+      <if test="payOrderNum != null">
+        #{payOrderNum,jdbcType=VARCHAR},
+      </if>
+      <if test="payCode != null">
+        #{payCode,jdbcType=VARCHAR},
+      </if>
+      <if test="receiptTimeout != null">
+        #{receiptTimeout,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reserveTime != null">
+        #{reserveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="buyerDefaultRealAmount != null">
+        #{buyerDefaultRealAmount,jdbcType=DOUBLE},
+      </if>
+      <if test="thirdSystemOrderNum != null">
+        #{thirdSystemOrderNum,jdbcType=VARCHAR},
+      </if>
+      <if test="insertTime != null">
+        #{insertTime,jdbcType=DATE},
+      </if>
+      <if test="takeMealCode != null">
+        #{takeMealCode,jdbcType=VARCHAR},
+      </if>
+      <if test="jobNum != null">
+        #{jobNum,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.springboot.entity.silverwaimai.Waimai">
+    update box_waimai
+    <set>
+      <if test="orderNum != null">
+        order_num = #{orderNum,jdbcType=VARCHAR},
+      </if>
+      <if test="orderSeq != null">
+        order_seq = #{orderSeq,jdbcType=INTEGER},
+      </if>
+      <if test="orderType != null">
+        order_type = #{orderType,jdbcType=INTEGER},
+      </if>
+      <if test="orderStatus != null">
+        order_status = #{orderStatus,jdbcType=INTEGER},
+      </if>
+      <if test="buyerId != null">
+        buyer_id = #{buyerId,jdbcType=VARCHAR},
+      </if>
+      <if test="shopperId != null">
+        shopper_id = #{shopperId,jdbcType=INTEGER},
+      </if>
+      <if test="shopId != null">
+        shop_id = #{shopId,jdbcType=INTEGER},
+      </if>
+      <if test="shopName != null">
+        shop_name = #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="machineId != null">
+        machine_id = #{machineId,jdbcType=BIGINT},
+      </if>
+      <if test="outerSupportId != null">
+        outer_support_id = #{outerSupportId,jdbcType=BIGINT},
+      </if>
+      <if test="originalPrice != null">
+        original_price = #{originalPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="totalFee != null">
+        total_fee = #{totalFee,jdbcType=DOUBLE},
+      </if>
+      <if test="totalPrice != null">
+        total_price = #{totalPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="payStatus != null">
+        pay_status = #{payStatus,jdbcType=INTEGER},
+      </if>
+      <if test="payModel != null">
+        pay_model = #{payModel,jdbcType=INTEGER},
+      </if>
+      <if test="totalPay != null">
+        total_pay = #{totalPay,jdbcType=DOUBLE},
+      </if>
+      <if test="thirdPromotionFee != null">
+        third_promotion_fee = #{thirdPromotionFee,jdbcType=DOUBLE},
+      </if>
+      <if test="payplatformPromotionFee != null">
+        payPlatform_promotion_fee = #{payplatformPromotionFee,jdbcType=DOUBLE},
+      </if>
+      <if test="tableUid != null">
+        table_uid = #{tableUid,jdbcType=VARCHAR},
+      </if>
+      <if test="tableNum != null">
+        table_num = #{tableNum,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeNo != null">
+        trade_no = #{tradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerRerfundTimeout != null">
+        buyer_rerfund_timeout = #{buyerRerfundTimeout,jdbcType=INTEGER},
+      </if>
+      <if test="delivererName != null">
+        deliverer_name = #{delivererName,jdbcType=VARCHAR},
+      </if>
+      <if test="delivererPhone != null">
+        deliverer_phone = #{delivererPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryPay != null">
+        delivery_pay = #{deliveryPay,jdbcType=DOUBLE},
+      </if>
+      <if test="endDeliveryTime != null">
+        end_delivery_time = #{endDeliveryTime,jdbcType=VARCHAR},
+      </if>
+      <if test="endSeconds != null">
+        end_seconds = #{endSeconds,jdbcType=INTEGER},
+      </if>
+      <if test="buyerMobile != null">
+        buyer_mobile = #{buyerMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="buyNick != null">
+        buy_nick = #{buyNick,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerPhone != null">
+        buyer_phone = #{buyerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceTitle != null">
+        invoice_title = #{invoiceTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="isHexiao != null">
+        is_hexiao = #{isHexiao,jdbcType=INTEGER},
+      </if>
+      <if test="identifyingCode != null">
+        identifying_code = #{identifyingCode,jdbcType=VARCHAR},
+      </if>
+      <if test="isOut != null">
+        is_out = #{isOut,jdbcType=INTEGER},
+      </if>
+      <if test="isPrint != null">
+        is_print = #{isPrint,jdbcType=INTEGER},
+      </if>
+      <if test="note != null">
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="payAccount != null">
+        pay_account = #{payAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="peopleNumber != null">
+        people_number = #{peopleNumber,jdbcType=INTEGER},
+      </if>
+      <if test="promotionDesc != null">
+        promotion_desc = #{promotionDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="promotionName != null">
+        promotion_name = #{promotionName,jdbcType=VARCHAR},
+      </if>
+      <if test="promotionPrice != null">
+        promotion_price = #{promotionPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="promotionType != null">
+        promotion_type = #{promotionType,jdbcType=INTEGER},
+      </if>
+      <if test="refundFee != null">
+        refund_fee = #{refundFee,jdbcType=DOUBLE},
+      </if>
+      <if test="refundNo != null">
+        refund_no = #{refundNo,jdbcType=VARCHAR},
+      </if>
+      <if test="refundTime != null">
+        refund_time = #{refundTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sellerCouponFee != null">
+        seller_coupon_fee = #{sellerCouponFee,jdbcType=INTEGER},
+      </if>
+      <if test="sellerRerfundTimeout != null">
+        seller_rerfund_timeout = #{sellerRerfundTimeout,jdbcType=INTEGER},
+      </if>
+      <if test="shopContactPhone != null">
+        shop_contact_phone = #{shopContactPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="shopLogo != null">
+        shop_logo = #{shopLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="startDeliveryTime != null">
+        start_delivery_time = #{startDeliveryTime,jdbcType=VARCHAR},
+      </if>
+      <if test="timeOutStamp != null">
+        time_out_stamp = #{timeOutStamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cancleReason != null">
+        cancle_reason = #{cancleReason,jdbcType=VARCHAR},
+      </if>
+      <if test="refuseMessage != null">
+        refuse_message = #{refuseMessage,jdbcType=VARCHAR},
+      </if>
+      <if test="shopperName != null">
+        shopper_name = #{shopperName,jdbcType=VARCHAR},
+      </if>
+      <if test="isPromotion != null">
+        is_promotion = #{isPromotion,jdbcType=INTEGER},
+      </if>
+      <if test="shopAddress != null">
+        shop_address = #{shopAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="isChainStore != null">
+        is_chain_store = #{isChainStore,jdbcType=INTEGER},
+      </if>
+      <if test="isAlipayOrder != null">
+        is_alipay_order = #{isAlipayOrder,jdbcType=INTEGER},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="hexiaoType != null">
+        hexiao_type = #{hexiaoType,jdbcType=INTEGER},
+      </if>
+      <if test="otherPrice != null">
+        other_price = #{otherPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="isCheckout != null">
+        is_checkout = #{isCheckout,jdbcType=INTEGER},
+      </if>
+      <if test="actualAmount != null">
+        actual_amount = #{actualAmount,jdbcType=DOUBLE},
+      </if>
+      <if test="source != null">
+        source = #{source,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null">
+        uid = #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="isOtherPay != null">
+        is_other_pay = #{isOtherPay,jdbcType=INTEGER},
+      </if>
+      <if test="koubeiShopid != null">
+        koubei_shopId = #{koubeiShopid,jdbcType=VARCHAR},
+      </if>
+      <if test="isOpenInvoice != null">
+        is_open_invoice = #{isOpenInvoice,jdbcType=INTEGER},
+      </if>
+      <if test="isRid != null">
+        is_rid = #{isRid,jdbcType=INTEGER},
+      </if>
+      <if test="ridPrice != null">
+        rid_price = #{ridPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="reachTime != null">
+        reach_time = #{reachTime,jdbcType=VARCHAR},
+      </if>
+      <if test="consignTime != null">
+        consign_time = #{consignTime,jdbcType=VARCHAR},
+      </if>
+      <if test="outOrderNum != null">
+        out_order_num = #{outOrderNum,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payTime != null">
+        pay_time = #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="receiverLng != null">
+        receiver_lng = #{receiverLng,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverLat != null">
+        receiver_lat = #{receiverLat,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryStatus != null">
+        delivery_status = #{deliveryStatus,jdbcType=INTEGER},
+      </if>
+      <if test="receiverSex != null">
+        receiver_sex = #{receiverSex,jdbcType=INTEGER},
+      </if>
+      <if test="takeOutMethod != null">
+        take_out_method = #{takeOutMethod,jdbcType=INTEGER},
+      </if>
+      <if test="receiverName != null">
+        receiver_name = #{receiverName,jdbcType=VARCHAR},
+      </if>
+      <if test="prepMealStatus != null">
+        prep_meal_status = #{prepMealStatus,jdbcType=INTEGER},
+      </if>
+      <if test="containerNum != null">
+        container_num = #{containerNum,jdbcType=VARCHAR},
+      </if>
+      <if test="outTakeNo != null">
+        out_take_no = #{outTakeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="lockStatus != null">
+        lock_status = #{lockStatus,jdbcType=INTEGER},
+      </if>
+      <if test="lockTime != null">
+        lock_time = #{lockTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="posVersion != null">
+        pos_version = #{posVersion,jdbcType=INTEGER},
+      </if>
+      <if test="payOrderNum != null">
+        pay_order_num = #{payOrderNum,jdbcType=VARCHAR},
+      </if>
+      <if test="payCode != null">
+        pay_code = #{payCode,jdbcType=VARCHAR},
+      </if>
+      <if test="receiptTimeout != null">
+        receipt_timeout = #{receiptTimeout,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reserveTime != null">
+        reserve_time = #{reserveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="buyerDefaultRealAmount != null">
+        buyer_default_real_amount = #{buyerDefaultRealAmount,jdbcType=DOUBLE},
+      </if>
+      <if test="thirdSystemOrderNum != null">
+        third_system_order_num = #{thirdSystemOrderNum,jdbcType=VARCHAR},
+      </if>
+      <if test="insertTime != null">
+        insert_time = #{insertTime,jdbcType=DATE},
+      </if>
+      <if test="takeMealCode != null">
+        take_meal_code = #{takeMealCode,jdbcType=VARCHAR},
+      </if>
+      <if test="jobNum != null">
+        job_num = #{jobNum,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.springboot.entity.silverwaimai.Waimai">
+    update box_waimai
+    set order_num = #{orderNum,jdbcType=VARCHAR},
+      order_seq = #{orderSeq,jdbcType=INTEGER},
+      order_type = #{orderType,jdbcType=INTEGER},
+      order_status = #{orderStatus,jdbcType=INTEGER},
+      buyer_id = #{buyerId,jdbcType=VARCHAR},
+      shopper_id = #{shopperId,jdbcType=INTEGER},
+      shop_id = #{shopId,jdbcType=INTEGER},
+      shop_name = #{shopName,jdbcType=VARCHAR},
+      machine_id = #{machineId,jdbcType=BIGINT},
+      outer_support_id = #{outerSupportId,jdbcType=BIGINT},
+      original_price = #{originalPrice,jdbcType=DOUBLE},
+      total_fee = #{totalFee,jdbcType=DOUBLE},
+      total_price = #{totalPrice,jdbcType=DOUBLE},
+      pay_status = #{payStatus,jdbcType=INTEGER},
+      pay_model = #{payModel,jdbcType=INTEGER},
+      total_pay = #{totalPay,jdbcType=DOUBLE},
+      third_promotion_fee = #{thirdPromotionFee,jdbcType=DOUBLE},
+      payPlatform_promotion_fee = #{payplatformPromotionFee,jdbcType=DOUBLE},
+      table_uid = #{tableUid,jdbcType=VARCHAR},
+      table_num = #{tableNum,jdbcType=VARCHAR},
+      trade_no = #{tradeNo,jdbcType=VARCHAR},
+      buyer_rerfund_timeout = #{buyerRerfundTimeout,jdbcType=INTEGER},
+      deliverer_name = #{delivererName,jdbcType=VARCHAR},
+      deliverer_phone = #{delivererPhone,jdbcType=VARCHAR},
+      delivery_pay = #{deliveryPay,jdbcType=DOUBLE},
+      end_delivery_time = #{endDeliveryTime,jdbcType=VARCHAR},
+      end_seconds = #{endSeconds,jdbcType=INTEGER},
+      buyer_mobile = #{buyerMobile,jdbcType=VARCHAR},
+      buy_nick = #{buyNick,jdbcType=VARCHAR},
+      buyer_phone = #{buyerPhone,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      invoice_title = #{invoiceTitle,jdbcType=VARCHAR},
+      is_hexiao = #{isHexiao,jdbcType=INTEGER},
+      identifying_code = #{identifyingCode,jdbcType=VARCHAR},
+      is_out = #{isOut,jdbcType=INTEGER},
+      is_print = #{isPrint,jdbcType=INTEGER},
+      note = #{note,jdbcType=VARCHAR},
+      pay_account = #{payAccount,jdbcType=VARCHAR},
+      people_number = #{peopleNumber,jdbcType=INTEGER},
+      promotion_desc = #{promotionDesc,jdbcType=VARCHAR},
+      promotion_name = #{promotionName,jdbcType=VARCHAR},
+      promotion_price = #{promotionPrice,jdbcType=DOUBLE},
+      promotion_type = #{promotionType,jdbcType=INTEGER},
+      refund_fee = #{refundFee,jdbcType=DOUBLE},
+      refund_no = #{refundNo,jdbcType=VARCHAR},
+      refund_time = #{refundTime,jdbcType=TIMESTAMP},
+      seller_coupon_fee = #{sellerCouponFee,jdbcType=INTEGER},
+      seller_rerfund_timeout = #{sellerRerfundTimeout,jdbcType=INTEGER},
+      shop_contact_phone = #{shopContactPhone,jdbcType=VARCHAR},
+      shop_logo = #{shopLogo,jdbcType=VARCHAR},
+      start_delivery_time = #{startDeliveryTime,jdbcType=VARCHAR},
+      time_out_stamp = #{timeOutStamp,jdbcType=TIMESTAMP},
+      cancle_reason = #{cancleReason,jdbcType=VARCHAR},
+      refuse_message = #{refuseMessage,jdbcType=VARCHAR},
+      shopper_name = #{shopperName,jdbcType=VARCHAR},
+      is_promotion = #{isPromotion,jdbcType=INTEGER},
+      shop_address = #{shopAddress,jdbcType=VARCHAR},
+      is_chain_store = #{isChainStore,jdbcType=INTEGER},
+      is_alipay_order = #{isAlipayOrder,jdbcType=INTEGER},
+      is_delete = #{isDelete,jdbcType=INTEGER},
+      hexiao_type = #{hexiaoType,jdbcType=INTEGER},
+      other_price = #{otherPrice,jdbcType=DOUBLE},
+      is_checkout = #{isCheckout,jdbcType=INTEGER},
+      actual_amount = #{actualAmount,jdbcType=DOUBLE},
+      source = #{source,jdbcType=INTEGER},
+      uid = #{uid,jdbcType=VARCHAR},
+      is_other_pay = #{isOtherPay,jdbcType=INTEGER},
+      koubei_shopId = #{koubeiShopid,jdbcType=VARCHAR},
+      is_open_invoice = #{isOpenInvoice,jdbcType=INTEGER},
+      is_rid = #{isRid,jdbcType=INTEGER},
+      rid_price = #{ridPrice,jdbcType=DOUBLE},
+      reach_time = #{reachTime,jdbcType=VARCHAR},
+      consign_time = #{consignTime,jdbcType=VARCHAR},
+      out_order_num = #{outOrderNum,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      pay_time = #{payTime,jdbcType=TIMESTAMP},
+      receiver_lng = #{receiverLng,jdbcType=VARCHAR},
+      receiver_lat = #{receiverLat,jdbcType=VARCHAR},
+      delivery_status = #{deliveryStatus,jdbcType=INTEGER},
+      receiver_sex = #{receiverSex,jdbcType=INTEGER},
+      take_out_method = #{takeOutMethod,jdbcType=INTEGER},
+      receiver_name = #{receiverName,jdbcType=VARCHAR},
+      prep_meal_status = #{prepMealStatus,jdbcType=INTEGER},
+      container_num = #{containerNum,jdbcType=VARCHAR},
+      out_take_no = #{outTakeNo,jdbcType=VARCHAR},
+      lock_status = #{lockStatus,jdbcType=INTEGER},
+      lock_time = #{lockTime,jdbcType=TIMESTAMP},
+      pos_version = #{posVersion,jdbcType=INTEGER},
+      pay_order_num = #{payOrderNum,jdbcType=VARCHAR},
+      pay_code = #{payCode,jdbcType=VARCHAR},
+      receipt_timeout = #{receiptTimeout,jdbcType=TIMESTAMP},
+      reserve_time = #{reserveTime,jdbcType=TIMESTAMP},
+      buyer_default_real_amount = #{buyerDefaultRealAmount,jdbcType=DOUBLE},
+      third_system_order_num = #{thirdSystemOrderNum,jdbcType=VARCHAR},
+      insert_time = #{insertTime,jdbcType=DATE},
+      take_meal_code = #{takeMealCode,jdbcType=VARCHAR},
+      job_num = #{jobNum,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
