@@ -100,6 +100,11 @@
 			<version>1.0</version>
 		</dependency>
 		<dependency>
+		    <groupId>org.springframework.cloud</groupId>
+		    <artifactId>spring-cloud-starter-config</artifactId>
+		    <version>2.0.2.RELEASE</version>
+		</dependency>
+		<dependency>
 			<groupId>cn.jpush.api</groupId>
 			<artifactId>jpush-client</artifactId>
 			<version>3.2.9</version>
@@ -109,22 +114,22 @@
 			<artifactId>org.eclipse.paho.client.mqttv3</artifactId>
 			<version>1.0.2</version>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>com.silverbox</groupId>
 			<artifactId>AliababaMQTT</artifactId>
 			<version>1.0</version>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>com.silverbox</groupId>
 			<artifactId>active-mqtt-blibao</artifactId>
 			<version>1.0</version>
 		</dependency>
 		<!-- 数据库加密 -->
-		<dependency>
+		<!--<dependency>
 			<groupId>com.silverbox</groupId>
 			<artifactId>data-source-utils</artifactId>
 			<version>1.0</version>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>
@@ -139,13 +144,19 @@
         </dependency>
         
         <!-- 热部署 -->
-        <dependency>
+        <!-- <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
-        </dependency>
+        </dependency> -->
+        <!-- 定时任务-->
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+			<version>2.2.1</version>
+		</dependency>
 	</dependencies>
-
+	
 	<build>
 		<plugins>
 			<plugin>
@@ -153,5 +164,25 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		<resources>
+    <resource>
+        <directory>src/main/java</directory>
+        <includes>
+            <include>**/*.yml</include>
+            <include>**/*.properties</include>
+            <include>**/*.xml</include>
+        </includes>
+        <filtering>false</filtering>
+    </resource>
+    <resource>
+        <directory>src/main/resources</directory>
+        <includes>
+            <include>**/*.yml</include>
+            <include>**/*.properties</include>
+            <include>**/*.xml</include>
+        </includes>
+        <filtering>false</filtering>
+    </resource>
+</resources>
 	</build>
 </project>

@@ -87,11 +87,11 @@ spring:
       max-active: 20
       min-idle: 1
       one:
-        url: jdbc:mysql://192.168.1.13/silverbox?useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true
+        url: jdbc:mysql://localhost:3306/silverbox?useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true
         username: root
         password: root
       two:
-        url: jdbc:mysql://192.168.1.13/silverbox_waimai?useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true
+        url: jdbc:mysql://localhost:3306/silverbox_waimai?useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true
         username: root
         password: root
       #druid监控页面，开发时可以开启
@@ -109,15 +109,15 @@ spring:
       #connection-init-sqls: set sql_safe_updates=1
 
   #redis 配置
-  redis:
-    host: 172.16.8.6
-    port: 6379
-    database: 4
-    timeout: 10000
-    pool:
-      max-active: 300
-      max-idle: 100
-      max-wait: 1000
+ # redis:
+  #  host: 172.16.8.6
+  #  port: 6379
+   # database: 4
+   # timeout: 10000
+   # pool:
+    #  max-active: 300
+    #  max-idle: 100
+     # max-wait: 1000
       
 #13领取优惠券地址
 coupon.url: http://test.blibao.com/server
